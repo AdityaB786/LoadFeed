@@ -1,69 +1,94 @@
 
----
 
-# Twitter Trend Scraper
+```markdown
+# Twitter and CNN News Scraper
 
-This project scrapes Twitter's trending topics using Puppeteer, stores the data in MongoDB, and displays it on a simple web page.
-
----
+This project is a web application built with **Vite** and **React** for the frontend, and **Node.js**, **Express**, and **Puppeteer** for the backend. It scrapes tweets from Twitter and news articles from CNN related to Donald Trump, Joe Biden, or both.
 
 ## Features
 
-- Scrapes the top 5 trending topics from Twitter.
-- Saves data (trends, timestamp, IP address) in MongoDB.
-- Simple front-end to interact with the scraper.
+- **Scrape Tweets**: Fetches the latest tweets related to Trump, Biden, or both.
+- **Scrape News**: Extracts news articles from CNN about Trump, Biden, or both.
+- **Interactive Frontend**: A responsive and user-friendly interface built with React.
+- **Efficient Backend**: Leverages Puppeteer for precise web scraping and Node.js for API handling.
 
----
+## Tech Stack
 
-## Installation
+### Frontend
+- **Vite**: For lightning-fast development.
+- **React**: For building interactive UI components.
 
-1. **Clone the repository**:
+### Backend
+- **Node.js**: For server-side operations.
+- **Express**: For creating RESTful APIs.
+- **Puppeteer**: For web scraping tasks.
 
+## Setup Instructions
+
+1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/twitter-trend-scraper.git
-   cd twitter-trend-scraper
+   git clone https://github.com/your-username/twitter-cnn-scraper.git
+   cd twitter-cnn-scraper
    ```
 
-2. **Install dependencies**:
-
+2. Install dependencies:
    ```bash
+   # Install server dependencies
+   cd server
+   npm install
+
+   # Install client dependencies
+   cd ../client
    npm install
    ```
 
-3. **Run MongoDB** (locally or remotely).
-
-4. **Start the app**:
-
+3. Start the application:
    ```bash
+   # Start the backend server
+   cd server
    npm start
+
+   # Start the frontend development server
+   cd ../client
+   npm run dev
    ```
 
-Visit `http://localhost:3000` in your browser.
+4. Open the application in your browser:
+   - Frontend: `http://localhost:5173`
+   - Backend API: `http://localhost:5000`
 
----
+## API Endpoints
+
+### Tweets Scraping
+- **GET /api/scrape/tweets/:query**  
+  Fetch tweets related to the specified query (`Trump`, `Biden`, or `Both`).
+
+### News Scraping
+- **GET /api/scrape/news/:query**  
+  Fetch CNN news articles related to the specified query (`Trump`, `Biden`, or `Both`).
 
 ## Usage
 
-- Click "Generate Trends" on the web page to scrape trends.
-- View the scraped data, including trends, timestamp, and IP address.
-- Data is stored in MongoDB under the `twitterScraper` database.
+1. Open the web app.
+2. Select the topic (`Trump`, `Biden`, or `Both`).
+3. View the latest tweets and news directly on the interface.
 
----
+## Folder Structure
 
-## Data Format
-
-MongoDB stores data as follows:
-
-```json
-{
-  "_id": "ccc8c097-11a3-4154-98fc-5b4e9fd2008d",
-  "nameoftrend1": "#INDvsAUSTest",
-  "nameoftrend2": "#dhanashreeverma",
-  "date_time": "2025-01-04T20:41:33.349Z",
-  "ip_address": "45.118.157.49"
-}
 ```
-=======
-# Twitter_tweetsFor_trump_biden
-Scrapes the latest tweets from twitter for Trump , Biden or both.
->>>>>>> 8a34ba77ee09ea5b1071bd4b85e94a392e08df70
+project-root/
+├── client/        # Frontend source code (Vite + React)
+├── server/        # Backend source code (Node.js + Express + Puppeteer)
+├── README.md      # Documentation
+```
+
+## Dependencies
+
+### Frontend
+- `react`, `react-dom`
+- `vite`
+
+### Backend
+- `express`
+- `puppeteer`
+
